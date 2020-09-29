@@ -9,8 +9,8 @@ include __DIR__ . '/partials/home/server.php';
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Room number</th>
-                    <th>Floor</th>
+                    <th>Numero stanza</th>
+                    <th>Piano</th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -22,8 +22,8 @@ include __DIR__ . '/partials/home/server.php';
                     <td><?=$room['id'];?></td>
                     <td><?=$room['room_number'];?></td>
                     <td><?=$room['floor'];?></td>
-                    <td></td>
-                    <td></td>
+                    <td><a href="read.php?id=<?=$room['id'];?>">VIEW</a></td>
+                    <td><a href="">UPDATE</a></td>
                     <td></td>
                 </tr>
                 <?php }?>
