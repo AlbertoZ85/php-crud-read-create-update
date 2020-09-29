@@ -10899,3 +10899,23 @@ a.text-dark:focus {
   }
 }
 
+.table {
+  margin: 1rem 0;
+}
+
+.list-group {
+  margin: 10px 0;
+}
+
+.list-group .list-group-item {
+  color: white;
+}
+
+.list-group .list-group-item:nth-child(odd) {
+  background-color: #3e444a;
+}
+
+.list-group .list-group-item:nth-child(even) {
+  background-color: #343a40;
+}
+
