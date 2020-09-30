@@ -7,14 +7,16 @@ if (empty($_POST['id'])) {
 
 $id = $_POST['id'];
 
-$sql = "DELETE FROM stanze WHERE id = $id";
-$result = $conn->query($sql);
+$sql = "DELETE FROM stanze WHERE id = ?";
 
-if ($result) {
-    // echo "Cancellata";
-    header("location: ../../index.php");
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $id);
+$stmt->execute();
+
+if ($stmt && $stmt->affected_rows > 0) {
+    header("Location: $basepath/index.php?id=$id");
 } else {
-    echo "Errore";
+    echo "Nessuna cancellazione";
 }
 
 $conn->close();
