@@ -1,5 +1,6 @@
 <?php
 include __DIR__ . '/../db.php';
+include __DIR__ . '/../functions.php';
 
 if (empty($_POST['id'])) {
     die('Nessun id selezionato');
@@ -7,16 +8,4 @@ if (empty($_POST['id'])) {
 
 $id = $_POST['id'];
 
-$sql = "DELETE FROM stanze WHERE id = ?";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $id);
-$stmt->execute();
-
-if ($stmt && $stmt->affected_rows > 0) {
-    header("Location: $basepath/index.php?id=$id");
-} else {
-    echo "Nessuna cancellazione";
-}
-
-$conn->close();
+deleteId($conn, 'stanze', $id, $basepath);
